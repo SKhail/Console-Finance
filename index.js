@@ -96,21 +96,35 @@ console.log("Financial Analysis \n------------------");
 console.log("Totals Months:" + finances.length);
 
 // Total Amounts
-var totalAmount = 0;
+let totalAmount = 0;
 
-for (var i = 0; i < finances.length; i++) {
+for (let i = 0; i < finances.length; i++) {
   totalAmount += finances[i][1];
 }
 console.log(`Total: $${totalAmount}`);
 
+//Average
 
+//The aim is to  find the greatest Increase in Profits/Losses in the Finances Array
 
-// * The net total amount of Profit / Losses over the entire period.
+let biggestIncrease = 0;
+let greatestMonth = "";
 
-// * The average of the ** changes ** in Profit / Losses over the entire period.
-//   * You will need to track what the total change in Profit / Losses are from month to month and then find the average.
-//   * (`Total/(Number of months - 1)`)
+for (let i = 1; i < finances.length; i++) {
 
-//   * The greatest increase in Profit / Losses(date and amount) over the entire period.
+  // Indexing to get the current Value 
+  const currentProfit = finances[i][1];
+  // Indexing to get the previous Month value
+  const previousProfit = finances[i - 1][1];
+  // formula to find the greatest Increase in Profits/Losses
+  const increaseAmount = currentProfit - previousProfit;
 
-// * The greatest decrease in Profit / Losses(date and amount) over the entire period.
+  if (increaseAmount > biggestIncrease) {
+    biggestIncrease = increaseAmount;
+    greatestMonth = finances[i][0];
+  }
+};
+
+console.log(`Greatest Increase in Profits/Losses: ${greatestMonth} $${biggestIncrease}`);
+
+// To find the Greatest Decrease in Profits/Losses:
