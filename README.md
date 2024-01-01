@@ -4,11 +4,7 @@
 
 In this challenge we will be analysing the financial records of a organisation. The financial dataset has been provided. The aim is to replicate financial data below:
 
-Total Months: 86
-Total: $38382578
-Average Change: -2315.12
-Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
-Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
+<img src="images/Screenshot 2024-01-01 at 20.54.47.png" width="125" height="125">
 
 ## Installation
 
@@ -33,8 +29,8 @@ Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
 
 ## Technology Stack
 
-<img src="assets/images/js.png" width="50" height="50">
-<img src="assets/images/html.png" width="50" height="50">
+<img src="images/js.png" width="50" height="50">
+<img src="images/html.png" width="50" height="50">
 
 ### External Resources
 
