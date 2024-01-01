@@ -87,44 +87,60 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// * The total number of months included in the dataset.
-
 
 console.log("Financial Analysis \n------------------");
 
-//Total Months
 console.log("Totals Months:" + finances.length);
 
-// Total Amounts
 let totalAmount = 0;
 
 for (let i = 0; i < finances.length; i++) {
+
   totalAmount += finances[i][1];
 }
+
 console.log(`Total: $${totalAmount}`);
 
-//Average
 
-//The aim is to  find the greatest Increase in Profits/Losses in the Finances Array
+let sumChange = 0
 
 let biggestIncrease = 0;
 let greatestMonth = "";
 
+let greatestDecrease = 0;
+let decreaseMonth = "";
+
 for (let i = 1; i < finances.length; i++) {
 
-  // Indexing to get the current Value 
-  const currentProfit = finances[i][1];
-  // Indexing to get the previous Month value
-  const previousProfit = finances[i - 1][1];
-  // formula to find the greatest Increase in Profits/Losses
-  const increaseAmount = currentProfit - previousProfit;
+  const currentProfit = finances[i][1];   // To get the current value 
+  const previousProfit = finances[i - 1][1]; // To get the previous month value
+  const AmountForumla = currentProfit - previousProfit;
 
-  if (increaseAmount > biggestIncrease) {
-    biggestIncrease = increaseAmount;
+  sumChange += AmountForumla
+
+  // To find the largest increase in Profit/Losses
+  if (AmountForumla > biggestIncrease) {
+    biggestIncrease = AmountForumla;
     greatestMonth = finances[i][0];
   }
-};
+  // To find the largest decrease in Profit/Losses
+  if (AmountForumla < greatestDecrease) {
+    greatestDecrease = AmountForumla
+    decreaseMonth = finances[i][0];
+  }
+}
+// removing the first month 
+const overallMonths = finances.length - 1;
+const averageChange = sumChange / overallMonths;
 
-console.log(`Greatest Increase in Profits/Losses: ${greatestMonth} $${biggestIncrease}`);
+//Showing the Average Change
+console.log(`Average Change: ${averageChange.toFixed(2)}`);
 
-// To find the Greatest Decrease in Profits/Losses:
+//Showing the largest increase in Profit/Losses
+console.log(`Greatest Increase in Profits / Losses: ${greatestMonth} $${biggestIncrease}`);
+
+//Showing the largest iecrease in Profit/Losses
+console.log(`Greatest Decrease in Profit / Losses: ${decreaseMonth} $${greatestDecrease}`);
+
+
+
